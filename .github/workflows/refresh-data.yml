@@ -13,6 +13,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repo
@@ -35,3 +36,5 @@ jobs:
           git add data/coins.json
           git diff --staged --quiet || git commit -m "chore: refresh stablecoin data $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
+
+
